@@ -3,7 +3,7 @@
 // we can load and hnf_theme.php and hnf_lang.php file here,
 // and do stuff in that manner.
 
-function fheader($title='', $css='', $js='')
+function fheader($title='', $css='', $js='', $jq='')
 {
 	
 	global $globals, $user;
@@ -14,7 +14,19 @@ function fheader($title='', $css='', $js='')
 	$user['theme_type'] = ( isset($user['theme_type'] ) ) ? $user['theme_type'] : ( ( isset($_SESSION['user']) && isset($_SESSION['user']['theme_type']) ) ? $_SESSION['user']['theme_type'] : 'default' ) ;
 	
 	$css = (!$css) ? $globals['boardurl']."/$themedir/".$user['theme_type'] . '/css/style.css' : $css;
+	
+	$jq = (!$jq) ? $globals['boardurl']."/$themedir/". $user['theme_type'] . '/js/jquery-1.7.2.min.js' : $jq;
+	
 	$js = (!$js) ? $globals['boardurl']."/$themedir/". $user['theme_type'] . '/js/javascript.js' : $js;
+	
+	
+	//<script language="javascript" type="text/javascript" src="'.$jq.'">
+	//</script>
+	// $jq = (!$jq) ? $globals['boardurl']."/$themedir/". $user['theme_type'] . '/js/jquery-1.7.2.min.js' : $jq;
+	
+	
+	// <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/ui-lightness/jquery-ui.css" />
+	
 	
 	echo '
 		<html>
@@ -24,6 +36,8 @@ function fheader($title='', $css='', $js='')
 		'
 		</title>
 		<link rel="stylesheet" type="text/css" href="'.$css.'">
+		<script language="javascript" type="text/javascript" src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js">
+		</script>
 		<script language="javascript" type="text/javascript" src="'.$js.'">
 		</script>
 		</head>
@@ -87,7 +101,9 @@ function fnav()
 				<li><a href="index.php?action=modifyprofile"></a></li>
 				</ul>
 				</td>
-*/	'			<td><a href="index.php?action=mainBoard"><span class="funny">/</span>Forums</a></td> 
+*/	'			
+				<td><a href="index.php?action=myresume"><span class="funny">=</span>My Resume</a></td>
+				<td><a href="index.php?action=mainBoard"><span class="funny">/</span>Forums</a></td> 
 				<td><a href="index.php?action=modifyprofile"><span class="funny">#</span>Modify Profile</a></td>
 				<td><a href="index.php?action=wall"><span class="funny">$</span>The Wall (stands Tall)</a></td>
 				<td><a href="index.php?action=listUsers"><span class="funny">^</span>List Users</a></td>

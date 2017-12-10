@@ -142,7 +142,15 @@ function nn()
 $nn = nn();
 echo $nn;
 exit;
+
 */
+
+//==================
+
+
+
+
+//==================
 
 
 // loading some Required Permissions & Privileges
@@ -261,6 +269,9 @@ function main()
 			'unFriend' => array( 'friends', 'addOrDelFriend', '', 3 => array('Profile', 'Un Friends' )  ),
 			'viewProfile' => array('viewProfile', 'viewProfile', '', 3 => array('Profile', 'View Profile' ) ),
 			'wall' => array( 'wall', 'wall', '', 3 => array('Profile', 'The Wall (stands Tall)' )  ),
+			
+			'myresume' => array('resume/myresume', 'myresume'),
+			
 			
 			// /opt/lampp/htdocs/www/forums/myForum/3/sources/register.php
 			// /opt/lampp/htdocs/www/forums/myForum/3/sources/login.php
